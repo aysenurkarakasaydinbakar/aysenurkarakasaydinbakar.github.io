@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayşenur Karakaş Aydınbakar | Economist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f0eff8;
+    --ink: #1a1828;
+    --rust: #6b5acd;
+    --sand: #a89fd8;
+    --muted: #6b6585;
+    --light-line: #d8d4ed;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-line);
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rust); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 6rem;
+    position: relative;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute; right: 0; top: 15%; bottom: 15%;
+    width: 1px; background: var(--light-line);
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--rust);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 420px;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+  }
+  .hero-links { display: flex; flex-direction: column; gap: 0.6rem; }
+  .hero-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.6rem;
+    transition: color 0.2s;
+  }
+  .hero-link::before {
+    content: '→';
+    color: var(--rust);
+    transition: transform 0.2s;
+  }
+  .hero-link:hover { color: var(--rust); }
+  .hero-link:hover::before { transform: translateX(4px); }
+
+  .hero-right {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 5rem 6rem 4rem;
+  }
+  .positions { list-style: none; }
+  .position-item {
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--light-line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .position-item:first-child { border-top: 1px solid var(--light-line); }
+  .position-org {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .position-role {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .position-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--sand);
+    text-align: right;
+    white-space: nowrap;
+    padding-top: 0.2rem;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 6rem;
+    border-top: 1px solid var(--light-line);
+  }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--rust);
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* RESEARCH */
+  .fields {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+  .field-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--rust);
+    color: var(--rust);
+    padding: 0.4rem 1rem;
+  }
+  .wip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--light-line);
+    border: 1px solid var(--light-line);
+  }
+  .wip-item {
+    background: var(--cream);
+    padding: 2rem;
+  }
+  .wip-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  .wip-status {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+
+  /* PUBLICATIONS */
+  .pub-list { list-style: none; }
+  .pub-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--light-line);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 2rem;
+  }
+  .pub-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--sand);
+    padding-top: 0.2rem;
+    min-width: 2.5rem;
+  }
+  .pub-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 0.35rem;
+    color: var(--ink);
+  }
+  .pub-journal {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .pub-doi {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--rust);
+    text-decoration: none;
+    margin-left: 0.5rem;
+  }
+  .pub-doi:hover { text-decoration: underline; }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--light-line);
+    border: 1px solid var(--light-line);
+  }
+  .edu-item {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+  }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  .edu-school { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem; }
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--rust);
+  }
+
+  /* TEACHING */
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .course-group h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.5rem;
+  }
+  .course-list { list-style: none; }
+  .course-list li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--light-line);
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--light-line);
+    padding: 3rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--rust); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 4rem 2rem 2rem; }
+    .hero-left::after { display: none; }
+    .hero-right { padding: 2rem; }
+    section { padding: 4rem 2rem; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .teaching-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#">Ayşenur Karakaş Aydınbakar</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border:none; padding:0;">
+  <div class="hero-left">
+    <p class="hero-tag">Researcher</p>
+    <h1 class="hero-name">Ayşenur<br><em>Karakaş Aydınbakar</em><span style="font-family:'DM Mono',monospace;font-size:1rem;font-style:normal;font-weight:300;color:var(--rust);letter-spacing:0.08em;">, PhD</span></h1>
+    <p class="hero-title">Household Economics, Labor Economics, Gender</p>
+    <p class="hero-desc">
+      My research sits at the intersection of gender, household economics, and labor markets. I examine how families negotiate work and care, how divorce reshapes women's economic lives, and how employment patterns transmit across generations — with a focus on Türkiye and comparative evidence from Japan.
+    </p>
+    <div class="hero-links">
+      <a class="hero-link" href="https://eb.asbu.edu.tr/en/akademik-personel/aysenuraydinbakar" target="_blank">ASBÜ Faculty Profile</a>
+      <a class="hero-link" href="https://www2.econ.tohoku.ac.jp/~PDesign/researchen.html" target="_blank">Tohoku University Research</a>
+      <a class="hero-link" href="/cdn-cgi/l/email-protection#96f7efe5f3f8e3e4b8f7eff2fff8f4f7fdf7e4d6f7e5f4e3b8f3f2e3b8e2e4"><span class="__cf_email__" data-cfemail="0e6f777d6b607b7c206f776a67606c6f656f7c4e6f7d6c7b206b6a7b207a7c">[email&#160;protected]</span></a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <ul class="positions">
+      <li class="position-item" style="animation-delay:0.3s">
+        <div>
+          <div class="position-org">Social Sciences University of Ankara</div>
+          <div class="position-role">Assistant Professor</div>
+        </div>
+        <div class="position-date">2024 — Present</div>
+      </li>
+      <li class="position-item" style="animation-delay:0.4s">
+        <div>
+          <div class="position-org">Tohoku University, Japan</div>
+          <div class="position-role">Visiting Associate Professor</div>
+        </div>
+        <div class="position-date">2022 — Present</div>
+      </li>
+      <li class="position-item" style="animation-delay:0.5s">
+        <div>
+          <div class="position-org">Social Sciences University of Ankara</div>
+          <div class="position-role">Lecturer</div>
+        </div>
+        <div class="position-date">2020 — 2024</div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Research</h2>
+  </div>
+  <div class="fields">
+    <span class="field-tag">Household Economics</span>
+    <span class="field-tag">Labor Economics</span>
+    <span class="field-tag">Gender</span>
+    <span class="field-tag">Intergenerational Transmission</span>
+    <span class="field-tag">Family Structure</span>
+  </div>
+
+  <p style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--rust);margin-bottom:1.5rem;">Work in Progress</p>
+  <div class="wip-grid">
+    <div class="wip-item">
+      <h4>The State's Affective Contract: Visualizing the 'Year of the Family' and the Gendered Politics of Care in Türkiye</h4>
+      <p class="wip-status">Submitted</p>
+    </div>
+    <div class="wip-item">
+      <h4>Marriage Market in Türkiye</h4>
+      <p class="wip-status">Under Review</p>
+    </div>
+    <div class="wip-item">
+      <h4>Words or Actions? The Next Generation</h4>
+      <p class="wip-status">Submitted</p>
+    </div>
+    <div class="wip-item">
+      <h4>Material and Social Deprivation of Turkish Women</h4>
+      <p class="wip-status">In Progress</p>
+    </div>
+    <div class="wip-item">
+      <h4>Female Labor Attachment in Türkiye</h4>
+      <p class="wip-status">In Progress</p>
+    </div>
+    <div class="wip-item">
+      <h4>Employees' Pension and Housework Division in Japan</h4>
+      <p class="wip-status">In Progress</p>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Publications</h2>
+  </div>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <span class="pub-year">2026</span>
+      <div>
+        <p class="pub-title">The Cost of Children: Material and Social Deprivation among Divorced Women's Households in Türkiye</p>
+        <p class="pub-journal">Women's Studies International Forum</p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2026</span>
+      <div>
+        <p class="pub-title">Domesticity reloaded: When the tradwife becomes a brand</p>
+        <p class="pub-journal">Feminist Media Studies — with C. Cetin
+          <a class="pub-doi" href="https://doi.org/10.1080/14680777.2026.2620772" target="_blank">DOI →</a>
+        </p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2025</span>
+      <div>
+        <p class="pub-title">Household decision-making dynamics in Türkiye: An analysis of selected indicators</p>
+        <p class="pub-journal">Istanbul University Journal of Women's Studies, 30, 1–14
+          <a class="pub-doi" href="https://doi.org/10.26650/iukad.2024.156851" target="_blank">DOI →</a>
+        </p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <p class="pub-title">Relative income, gender identity, and happiness in dual-earner households in Türkiye</p>
+        <p class="pub-journal">Gender Issues, 41(18)</p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <p class="pub-title">Intergenerational transmission of maternal employment and daughters' career paths</p>
+        <p class="pub-journal">Sosyal Politika Çalışmaları Dergisi, 24(64)</p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <p class="pub-title">When is divorce more painful? The impact of social context in Türkiye</p>
+        <p class="pub-journal">Journal of Social and Personal Relationships, 41(11) — with Z. B. Uğur
+          <a class="pub-doi" href="https://doi.org/10.1177/02654075241269685" target="_blank">DOI →</a>
+        </p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <p class="pub-title">The Effect of environmental degradation on self-reported health: The role of renewable energy consumption</p>
+        <p class="pub-journal">Environmental Science and Pollution Research, 31 — with J. Yildirim, B. Alpaslan, A. Hibiki
+          <a class="pub-doi" href="https://doi.org/10.1007/s11356-023-30981-z" target="_blank">DOI →</a>
+        </p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2023</span>
+      <div>
+        <p class="pub-title">Intergenerational transmission of married women's employment in Japan</p>
+        <p class="pub-journal">The Singapore Economic Review, 68(6)</p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2023</span>
+      <div>
+        <p class="pub-title">The impact of age difference on the life satisfaction of wives in specialized and nonspecialized households in Japan</p>
+        <p class="pub-journal">Uluslararası Ekonomi, İşletme ve Politika Dergisi, 7(2)</p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2020</span>
+      <div>
+        <p class="pub-title">Living arrangement and mothers' employment in Japan</p>
+        <p class="pub-journal">Ege Academic Review, 20(4), 319–331
+          <a class="pub-doi" href="https://doi.org/10.21121/eab.772604" target="_blank">DOI →</a>
+        </p>
+      </div>
+    </li>
+    <li class="pub-item">
+      <span class="pub-year">2014</span>
+      <div>
+        <p class="pub-title">The impacts of trade liberalization on gender</p>
+        <p class="pub-journal">Nişantaşı Üniversitesi, 2(2)</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-item">
+      <p class="edu-degree">PhD in Economics</p>
+      <p class="edu-school">Tohoku University, Japan</p>
+      <p class="edu-year">2019</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-degree">MSc in Economics</p>
+      <p class="edu-school">Istanbul Technical University</p>
+      <p class="edu-year">2016</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Teaching</h2>
+  </div>
+  <div class="teaching-grid">
+    <div class="course-group">
+      <h3>Social Sciences University of Ankara</h3>
+      <ul class="course-list">
+        <li>Economics and Gender (Undergraduate)</li>
+        <li>Principles of Economics (Undergraduate)</li>
+        <li>Labor Economics (Undergraduate)</li>
+        <li>Introduction to Economics I & II (Undergraduate)</li>
+        <li>Seminars in Economics (Undergraduate)</li>
+      </ul>
+    </div>
+    <div class="course-group">
+      <h3>Skills & Languages</h3>
+      <ul class="course-list">
+        <li>Stata · LaTeX</li>
+        <li>Turkish (Native)</li>
+        <li>English (Proficient)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- COLLABORATION -->
+<section id="contact" style="background: var(--ink); color: var(--cream);">
+  <div style="max-width: 700px;">
+    <p style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sand);margin-bottom:1.5rem;">05 — Get in Touch</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;font-style:italic;line-height:1.2;margin-bottom:1.5rem;">
+      Interested in<br>collaborating?
+    </h2>
+    <p style="font-size:0.95rem;color:var(--sand);line-height:1.9;max-width:480px;margin-bottom:3rem;">
+      I welcome research collaborations, invitations to seminars and workshops, and inquiries from students and colleagues working on household economics, gender, and labor markets.
+    </p>
+    <a href="mailto:aysenur.aydinbakar@asbu.edu.tr"
+       style="display:inline-block;font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);background:var(--cream);padding:1rem 2.2rem;text-decoration:none;transition:background 0.2s,color 0.2s;"
+       onmouseover="this.style.background='var(--rust)';this.style.color='var(--cream)'"
+       onmouseout="this.style.background='var(--cream)';this.style.color='var(--ink)'">
+      Email Me &rarr;
+    </a>
+    <div style="margin-top:3rem;display:flex;flex-direction:column;gap:0.7rem;border-top:1px solid #333;padding-top:2rem;">
+      <a href="mailto:aysenuraydinbakar@gmail.com" style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--sand);text-decoration:none;">aysenuraydinbakar@gmail.com</a>
+      <a href="https://eb.asbu.edu.tr/en/akademik-personel/aysenuraydinbakar" target="_blank" style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--sand);text-decoration:none;">ASBU Faculty Profile &rarr;</a>
+      <a href="https://www2.econ.tohoku.ac.jp/~PDesign/researchen.html" target="_blank" style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--sand);text-decoration:none;">Tohoku University Research Page &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Aysenur Karakas Aydinbakar</span>
+  <div class="footer-links">
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
