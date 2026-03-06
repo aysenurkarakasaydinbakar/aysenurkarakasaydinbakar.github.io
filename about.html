@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Ayşenur Karakaş Aydınbakar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f0eff8;
+    --ink: #1a1828;
+    --rust: #6b5acd;
+    --sand: #a89fd8;
+    --muted: #6b6585;
+    --light-line: #d8d4ed;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(240,239,248,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-line);
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--rust); }
+
+  .about-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 10rem 2rem 6rem;
+  }
+
+  .about-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.15;
+    margin-bottom: 3rem;
+  }
+
+  .about-body {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--ink);
+  }
+
+  .about-body p {
+    margin-bottom: 1.8rem;
+  }
+
+  .about-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  footer {
+    border-top: 1px solid var(--light-line);
+    padding: 3rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--rust); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    .about-wrap { padding: 7rem 1.5rem 4rem; }
+    footer { padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Ayşenur Karakaş Aydınbakar</a>
+  <ul class="nav-links">
+    <li><a href="index.html#publications">Publications</a></li>
+    <li><a href="index.html#teaching">Teaching</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="about-wrap">
+  <p class="about-tag">About</p>
+  <h1 class="about-title">Ayşenur<br>Karakaş Aydınbakar</h1>
+
+  <div class="about-body">
+    <p>
+      I completed my undergraduate degree in Economics in 2013 and went on to pursue a Master's at Istanbul Technical University. While there, I was awarded a doctoral scholarship by the Republic of Türkiye and moved to England in 2015. After a year and a half, I began my PhD at Tohoku University in September 2016, where I studied household economics and gender in the Japanese context.
+    </p>
+    <p>
+      I returned to Türkiye in 2019 after completing my doctorate and joined the Social Sciences University of Ankara, where I have been based ever since. Every two years, I return to Tohoku for month-long collaborative visits — a rhythm I've come to look forward to.
+    </p>
+    <p>
+      Outside of work, my days are shaped by reading, learning to code, doing research, and spending time with my family.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/ayşenur-karakaş-aydınbakar-3896005b/" target="_blank">LinkedIn →</a>
+      <a href="https://www.researchgate.net/profile/Aysenur-Karakas-Aydinbakar?ev=hdr_xprf" target="_blank">ResearchGate →</a>
+      <a href="https://orcid.org/0000-0003-2885-7199" target="_blank">ORCID →</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--muted);border-top:1px solid var(--light-line);padding-top:1.5rem;width:100%;">© 2026 Ayşenur Karakaş Aydınbakar. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
